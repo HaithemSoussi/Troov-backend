@@ -43,11 +43,11 @@ This is the backend for the Troov application, built with Node.js, Express, and 
 ### API Endpoints
 
 - `GET /api/users` - Get all users
-- `GET /products` - Get all products
-- `GET /products/:id` - Get a product by ID
-- `POST /products` - Add a new product
-- `PATCH /products/:id` - Update a product
-- `DELETE /products/:id` - Delete a product
+- `GET /api/users/products` - Get all products
+- `GET /api/users/products/:id` - Get a product by ID
+- `POST /api/users/products` - Add a new product
+- `PATCH /api/users/products/:id` - Update a product
+- `DELETE /api/users/products/:id` - Delete a product
 
 ### License
 
