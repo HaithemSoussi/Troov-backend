@@ -26,6 +26,9 @@ const getProductsByUser = async (req, res) => {
 
     // Find products created by this user
     const products = await Product.find({ user: userId });
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
 
     res.status(200).json(products);
   } catch (error) {
@@ -46,6 +49,9 @@ const getProductsByUser = async (req, res) => {
 const getProducts = async (req, res) => {
   try {
     const products = await Product.find({});
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
@@ -62,6 +68,9 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
     res.json(product);
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
@@ -118,7 +127,9 @@ const updateProduct = async (req, res) => {
 
     // Find the product by ID
     const product = await Product.findById(id);
-
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
@@ -164,6 +175,9 @@ const deleteProduct = async (req, res) => {
 
     // Find the product by ID
     const product = await Product.findById(id);
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
 
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
